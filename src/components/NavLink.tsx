@@ -10,11 +10,7 @@ interface CategoryType{
     scrapable: boolean
 }
 
-interface ApiResponse {
-  data: CategoryType[];
-}
-
-const getNavLinkCategories = async (): Promise<ApiResponse> => {
+const getNavLinkCategories = async (): Promise<{ data: CategoryType[] }> => {
   try {
     const res = await fetch("https://news-api-v2.vercel.app/api/categories");
     return res.json();

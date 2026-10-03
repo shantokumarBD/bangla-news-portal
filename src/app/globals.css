@@ -2,17 +2,51 @@
 @plugin "daisyui";
 
 @theme {
-  --color-primary:    #6A0DAD;   /* Deep Purple   */
-  --color-secondary:  #FF3B3B;   /* Brand Red     */
-  --color-accent:     #FF3B3B;   /* Live Red      */
-  --color-dark:       #0A0E1A;   /* Navy Black    */
-  --color-light:      #F0F4FF;   /* Soft White    */
+  --color-primary: #111111; /* Sleek Black */
+  --color-secondary: #ff3b3b; /* Brand Red */
+  --color-accent: #ff3b3b; /* Live Red */
+  --color-dark: #000000; /* Pure Black */
+  --color-light: #f9fafb; /* Soft White */
 }
 
 @layer utilities {
-  .text-gradient      { background: linear-gradient(135deg, #6A0DAD, #FF3B3B); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .bg-gradient-brand  { background: linear-gradient(140deg, #6609a9, #FF3B3B); }
-  .glow-purple        { box-shadow: 0 0 20px #9100f980; }
-  .glow-red           { box-shadow: 0 0 20px #f4000080; }
-  .badge-live         { display: inline-flex; align-items: center; gap: 6px; background: #FF3B3B; color: #fff; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .text-gradient {
+    background: linear-gradient(135deg, #111111, #ff3b3bb9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .bg-gradient-brand {
+    background: linear-gradient(140deg, #000000, #ff3b3b);
+  }
+  .glow-purple {
+    box-shadow: 0 0 20px #11111180;
+  }
+  .glow-red {
+    box-shadow: 0 0 20px #f4000080;
+  }
+  .glow-mixed {
+    box-shadow: -12px 12px 25px rgba(0, 0, 0, 0.15), 12px -12px 25px rgba(255, 59, 59, 0.35);
+  }
+  .badge-live {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #ff3b3b;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
 }

@@ -10,24 +10,23 @@ const Header = () => {
   return (
     <header className="w-full bg-white">
       <div className="flex items-center justify-between max-w-7xl mx-auto px-6 py-5">
-        
         {/* Left - Empty Space for Balance */}
         <div className="flex-1 hidden md:block"></div>
 
         {/* Center - Highly Unique Brand Logo */}
         <div className="flex-1 flex items-center justify-center gap-4">
+          {/* True Black & Red Mixed Glow Wrapper */}
           <div className="relative group">
-            {/* Glowing aura behind logo */}
-            <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full group-hover:bg-primary/30 transition-all duration-500"></div>
-            <Image 
-              src={logo} 
-              alt="Bangla News Logo" 
-              width={110} 
-              height={110} 
-              className="relative drop-shadow-xl group-hover:scale-105 transition-transform duration-500" 
+            <Image
+              src={logo}
+              alt="Bangla News Logo"
+              width={110}
+              height={110}
+              priority
+              className="relative drop-shadow-xl group-hover:scale-105 transition-transform duration-500"
             />
           </div>
-          
+
           <div className="flex flex-col justify-center">
             <h1 className="font-black text-4xl text-gradient tracking-tight leading-none drop-shadow-sm whitespace-nowrap">
               বাংলার সংবাদ
