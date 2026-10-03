@@ -1,2 +1,18 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
+@theme {
+  --color-primary:    #6A0DAD;   /* Deep Purple   */
+  --color-secondary:  #FF3B3B;   /* Brand Red     */
+  --color-accent:     #FF3B3B;   /* Live Red      */
+  --color-dark:       #0A0E1A;   /* Navy Black    */
+  --color-light:      #F0F4FF;   /* Soft White    */
+}
+
+@layer utilities {
+  .text-gradient      { background: linear-gradient(135deg, #6A0DAD, #FF3B3B); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .bg-gradient-brand  { background: linear-gradient(140deg, #6609a9, #FF3B3B); }
+  .glow-purple        { box-shadow: 0 0 20px #9100f980; }
+  .glow-red           { box-shadow: 0 0 20px #f4000080; }
+  .badge-live         { display: inline-flex; align-items: center; gap: 6px; background: #FF3B3B; color: #fff; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; letter-spacing: 0.1em; text-transform: uppercase; }
+}
