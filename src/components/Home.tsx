@@ -1,4 +1,5 @@
 import MainNews from "./MainNews";
+import OtherNewsSection from "./OtherNewsSection";
 
 export interface SectionData {
   title: string;
@@ -38,10 +39,10 @@ const Home = async () => {
   const { data } = await getHomePage();
   // console.log("First Secton Articles", data[0]?.articles[0]);
   
-  // console.log(data);
+  console.log(data);
 
   const otherNews = data.slice(1)
-  // console.log(otherNews);
+  console.log(otherNews);
   
   
 
@@ -50,8 +51,9 @@ const Home = async () => {
       <div className="max-w-7xl mx-auto px-4 lg:px-6 grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
         <div className="lg:col-span-2">
             <MainNews news={data[0].articles}></MainNews>
+            <OtherNewsSection otherNews={otherNews}></OtherNewsSection>
         </div>
-        <div className="lg:col-span-1 bg-green-500 rounded-lg h-full min-h-[300px]">o</div>
+        <div className="lg:col-span-1 bg-green-500 rounded-lg h-fit min-h-[300px]">o</div>
       </div>
     </div>
   );
