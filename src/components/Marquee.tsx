@@ -27,7 +27,7 @@ const getNewsMarquee = async (): Promise<{ data: MarqueeType[] }> => {
 
 const Marquee = async () => {
   const { data } = await getNewsMarquee();
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="mt-5 bg-gradient-brand text-white">
