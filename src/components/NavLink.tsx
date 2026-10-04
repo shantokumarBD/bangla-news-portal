@@ -13,9 +13,15 @@ interface CategoryType{
 const getNavLinkCategories = async (): Promise<{ data: CategoryType[] }> => {
   try {
     const res = await fetch("https://news-api-v2.vercel.app/api/categories");
-    return res.json();
+    if (!res.ok) {
+      console.error(`API Error in NavLink: ${res.status}`);
+      return { data: [] };
+    }
+    const data = await res.json();
+    return data;
   } catch (error) {
-    throw new Error("Failed data load");
+    console.error("Failed data load:", error);
+    return { data: [] };
   }
 };
 
@@ -28,7 +34,7 @@ const NavLink = async () => {
     <div className="flex items-center justify-center gap-5 mt-5">
         <Link href={'/'}>হোম</Link>
       {data?.filter((f)=> f.scrapable).map((navitems , i: number) => (
-        <Link key={i} href={navitems.slug}>
+        <Link key={i} href={`/category/${navitems.slug}`}>
           {navitems.title}
         </Link>
       ))}
