@@ -1,4 +1,5 @@
 import MainNews from "./MainNews";
+import MostRead from "./MostRead";
 import OtherNewsSection from "./OtherNewsSection";
 
 export interface SectionData {
@@ -53,7 +54,9 @@ const Home = async () => {
             <MainNews news={data[0].articles}></MainNews>
             <OtherNewsSection otherNews={otherNews}></OtherNewsSection>
         </div>
-        <div className="lg:col-span-1 bg-green-500 rounded-lg h-fit min-h-[300px]">o</div>
+        <div className="lg:col-span-1 bg-green-500 rounded-lg h-fit min-h-[300px]">
+          <MostRead></MostRead>
+        </div>
       </div>
     </div>
   );
