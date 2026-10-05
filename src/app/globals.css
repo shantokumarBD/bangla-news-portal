@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@import "@heroui/styles"; 
 
 @theme {
   --color-primary: #111111; /* Sleek Black */
