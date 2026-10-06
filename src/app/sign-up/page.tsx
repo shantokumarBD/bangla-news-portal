@@ -1,6 +1,6 @@
 "use client";
 
-import { signUp } from "@/lib/auth-client";
+import { signIn, signUp } from "@/lib/auth-client";
 
 import {
   Button,
@@ -42,6 +42,12 @@ export default function SignUpPage() {
       toast.error(error.message || "অ্যাকাউন্ট তৈরি করতে সমস্যা হয়েছে");
       console.error("Sign up failed:", error);
     }
+  };
+
+  const handleGoogleSignUP = async () => {
+    const data = await signIn.social({
+      provider: "google",
+    });
   };
 
   return (
@@ -152,6 +158,8 @@ export default function SignUpPage() {
                 </Button>
               </div>
             </Form>
+
+            <button onClick={handleGoogleSignUP}>Sign in with Google</button>
 
             {/* Divider */}
             <div className="my-6 flex items-center gap-3">
