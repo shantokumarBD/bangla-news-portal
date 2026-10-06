@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Serif_Bengali } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import { Toaster } from "react-hot-toast";
 
 const noto_serif_bengali = Noto_Serif_Bengali({
   subsets: ["latin", "bengali"],
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <main className="flex-grow">
           {children}
         </main>
+        <Toaster position="top-right" reverseOrder={false} />
       </body>
     </html>
   );

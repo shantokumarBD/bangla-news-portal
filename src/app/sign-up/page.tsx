@@ -11,8 +11,13 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 
 export default function SignUpPage() {
+  const router = useRouter();
+
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -29,6 +34,14 @@ export default function SignUpPage() {
       image: data.image as string,
       callbackURL: "/sign-in",
     });
+
+    if (!error) {
+      toast.success("সফলভাবে অ্যাকাউন্ট তৈরি হয়েছে!");
+      router.push("/sign-in");
+    } else {
+      toast.error(error.message || "অ্যাকাউন্ট তৈরি করতে সমস্যা হয়েছে");
+      console.error("Sign up failed:", error);
+    }
   };
 
   return (
@@ -149,12 +162,12 @@ export default function SignUpPage() {
 
             <p className="text-center text-sm text-gray-500">
               আগে থেকেই অ্যাকাউন্ট আছে?{" "}
-              <a
+              <Link
                 href="/sign-in"
                 className="font-bold text-[#cc0000] hover:text-[#ff3b3b] hover:underline transition-colors"
               >
                 সাইন ইন করুন
-              </a>
+              </Link>
             </p>
           </div>
         </div>

@@ -11,8 +11,12 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 
 export default function SignInPage() {
+  const router = useRouter();
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -25,8 +29,15 @@ export default function SignInPage() {
     const { data: resData, error } = await signIn.email({
       email: data.email as string,
       password: data.password as string,
-      callbackURL: "/",
     });
+
+    if (!error) {
+      toast.success("সফলভাবে লগ ইন হয়েছে!");
+      router.push("/");
+    } else {
+      toast.error(error.message || "ইমেইল অথবা পাসওয়ার্ড ভুল হয়েছে");
+      console.error("Sign in failed:", error);
+    }
   };
 
   return (
@@ -124,12 +135,12 @@ export default function SignInPage() {
 
             <p className="text-center text-sm text-gray-500">
               অ্যাকাউন্ট নেই?{" "}
-              <a
-                href="/sign-in"
+              <Link
+                href="/sign-up"
                 className="font-bold text-[#cc0000] hover:text-[#ff3b3b] hover:underline transition-colors"
               >
                  সাইন আপ করুন
-              </a>
+              </Link>
             </p>
           </div>
         </div>

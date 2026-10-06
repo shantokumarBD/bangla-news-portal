@@ -3,6 +3,7 @@
 import { useSession, signOut } from "@/lib/auth-client";
 import { router } from "better-auth/api";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 const UserInfo = () => {
   const { data: session, isPending, error, refetch } = useSession();
@@ -10,7 +11,9 @@ const UserInfo = () => {
   const user = session?.user;
 
   const handleSignOut = async () => {
+    toast.success("সফলভাবে লগ আউট হয়েছে!");
     await signOut();
+    // window.location.reload();
   };
 
   return (
