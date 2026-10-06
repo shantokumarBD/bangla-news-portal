@@ -27,9 +27,18 @@ const UserInfo = () => {
               className="w-8 h-8 rounded-full object-cover border border-gray-200"
             />
           )}
-          <h2 className="text-sm md:text-base font-semibold text-gray-800 whitespace-nowrap">
-            {user.name}
-          </h2>
+          <Link href={"/profile"}>
+            <div className="flex flex-col items-center">
+              <div className="avatar avatar-placeholder">
+                <div className="bg-neutral text-neutral-content w-8 rounded-full">
+                  <span className="text-xs">UI</span>
+                </div>
+              </div>
+              <h2 className="text-sm md:text-base font-semibold text-gray-800 whitespace-nowrap">
+                {user.name}
+              </h2>
+            </div>
+          </Link>
           <button
             onClick={handleSignOut}
             className="px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-red-500 text-red-500 font-semibold text-[10px] md:text-sm hover:bg-red-50 hover:shadow-sm transition-all duration-300 whitespace-nowrap"
