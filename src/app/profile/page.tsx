@@ -35,8 +35,9 @@ const ProfilePage = () => {
   }
 
   if (!user) {
-    return <div>Please log in to view this page.</div>;
+    return <div>Please log in to view your profile.</div>;
   }
+
 
   return (
     <div className="max-w-xl mx-auto mt-12 mb-20 bg-white p-8 md:p-10 rounded-3xl shadow-[0_2px_20px_rgb(0,0,0,0.04)] border border-gray-100">

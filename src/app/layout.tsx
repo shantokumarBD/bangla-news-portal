@@ -18,10 +18,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html
       lang="en"
-      data-theme ='light'
-      className={`${noto_serif_bengali.className}h-full antialiased`}
+      data-theme='light'
+      className={`${noto_serif_bengali.className} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <Header></Header>
         <main className="flex-grow">
           {children}
